@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: yarn install --immutable
     - name: Install Chrome
-      run: yarn install playwright chrome
+      run: yarn add playwright chrome
     - name: Run Playwright API tests
       run: yarn run test:api
     - name: Upload API test results
