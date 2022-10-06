@@ -17,6 +17,8 @@ jobs:
         node-version: '14.x'
     - name: Install dependencies
       run: yarn install --immutable
+    - name: Install Chrome
+      run: npx playwright install chrome
     - name: Run Playwright API tests
       run: yarn run test:api
     - name: Upload API test results
