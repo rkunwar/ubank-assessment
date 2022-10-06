@@ -6,7 +6,7 @@ require('dotenv').config()
 const config: PlaywrightTestConfig = {
  
   workers: 1, // Set it to 1 unless we want to start parllelising tests.
-  reporter: process.env.CI ? [ ['junit',{ embedAttachmentsAsProperty: 'testrun_evidence' , outputFile: 'results.xml' }]] :'html',
+  reporter:   [['html',{ embedAttachmentsAsProperty: 'testrun_evidence' }]],
   retries: 0,
   use: {
     trace: 'on',
