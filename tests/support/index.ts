@@ -1,1 +1,1 @@
-export const API_SERVER = '/v2';
+export const API_SERVER = 'https://petstore.swagger.io/v2';

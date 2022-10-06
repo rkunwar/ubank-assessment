@@ -9,6 +9,7 @@ import { petData } from '../data/test-data';
 import { apiHelper } from '../helpers/api'
 import { getRandomNumber } from '../support/common';
 import chance from 'chance';
+import { API_SERVER } from '../support';
 
 const Chance = chance();
 //test.use({ baseURL: 'https://petstore.swagger.io' });
@@ -27,7 +28,7 @@ test.describe('API Tests', async () => {
 
         apiContext = await request.newContext({
             // All requests in this test we send go to this API endpoint.
-            baseURL: process.env.APIURL!,
+            baseURL: API_SERVER!,
             extraHTTPHeaders: {
                 'Content-Type': 'application/json',
             },
