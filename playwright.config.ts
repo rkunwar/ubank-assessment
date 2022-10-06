@@ -6,7 +6,7 @@ require('dotenv').config()
 const config: PlaywrightTestConfig = {
  
   workers: 1, // Set it to 1 unless we want to start parllelising tests.
-  reporter: process.env.CI ? 'line' :'html',
+  reporter: process.env.CI ? '["junit", { outputFile: "test-results/e2e-junit-results.xml" }]' :'html',
   
   retries: 0,
   use: {
