@@ -17,11 +17,19 @@ jobs:
         node-version: '14.x'
     - name: Install dependencies
       run: yarn install --immutable
-    - name: Run Playwright tests
+    - name: Run Playwright API tests
       run: yarn run test:api
-    - name: Upload test results
+    - name: Upload API test results
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: playwright-report
+        name: playwright-report-API
+        path: playwright-report
+    - name: Run Playwright browser tests
+      run: yarn run test:browser
+    - name: Upload Browser test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: playwright-report-Browser
         path: playwright-report
