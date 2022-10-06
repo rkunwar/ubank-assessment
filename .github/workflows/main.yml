@@ -19,12 +19,9 @@ jobs:
       run: yarn install --immutable
     - name: Run Playwright tests
       run: yarn run test:api
-    - task: PublishTestResults@2
-              displayName: 'Publish test results'
-              inputs:
-                searchFolder: 'my-e2e-tests/test-results'
-                testResultsFormat: 'JUnit'
-                testResultsFiles: 'e2e-junit-results.xml' 
-                mergeTestResults: true
-                failTaskOnFailedTests: true
-                testRunTitle: 'My End-To-End Tests'
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: playwright-report
+        path: playwright-report
