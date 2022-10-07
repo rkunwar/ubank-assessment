@@ -17,7 +17,15 @@ yarn install
 yarn add playwright
 ```
 
-## Running Canary Tests
+## Running API Tests
+
+Run your tests with the assumption that all test files are in the `tests` directory. Below command will run api tests. 
+
+```bash
+yarn run test:api 
+```
+
+## Running Browser Tests
 
 Run your tests with the assumption that all test files are in the `tests` directory. Below command will run tests in headless mode.
 
@@ -53,7 +61,7 @@ yarn run playwright show-report
 Each test specs are named with their appropriate naming postfixed by .playwright.spec.ts. 
 
 ## GITHUB ACTIONS
-TODO: Setup GITHUB CI pipeline for running tests if I have time
+GITHUB  CI Pipeline has been setup with two different steps one for API Tests and 1 for browser tests to keep the tests separation. 
 
 
 
