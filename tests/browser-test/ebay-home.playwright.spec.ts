@@ -1,6 +1,7 @@
 import { test, Browser, Page, chromium, expect } from '@playwright/test';
 import { Home } from '../page/home/home';
 import chance from 'chance';
+import { isSelectorExists } from '../helpers/selector';
 
 
 // test.use({ storageState: 'playwright-auth.json' });
@@ -22,7 +23,16 @@ test.describe('Ebay Home Page Tests', async () => {
         await browser.close();
     });
 
-    test('Assert Home page is displayed and asserty on Menus', async () => {
+    test('Assert Home page is displayed and Navigation Menu Items are present', async () => {
+        const home = new Home(page);
+        await page.goto('/');
+        const navItems = await home.returnHomeSelectors("navSelector")
+        for (const property in navItems) {
+            expect(await isSelectorExists(page, navItems[property as keyof typeof navItems])).toBeTruthy()
+          }
+    });
+
+    test('Assert Home page is displayed and can search for menu Items', async () => {
         const home = new Home(page);
         const searchString = 'cars'
         await page.goto('/');

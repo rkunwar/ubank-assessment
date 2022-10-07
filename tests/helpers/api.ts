@@ -1,5 +1,5 @@
 import { APIRequestContext, APIResponse, expect } from '@playwright/test';
-import { API_SERVER } from '../support';
+import { API_SERVER } from '../support/common'
 
 export const apiHelper = {
 
