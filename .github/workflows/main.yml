@@ -34,7 +34,11 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: playwright-report-Browser
-        path: 
-          playwright-report 
-          verification
+        path: playwright-report
+    - name: Upload Verification Screenshots
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: Screenshots
+        path: verification
         
