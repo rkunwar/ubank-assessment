@@ -34,5 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: playwright-report-Browser
-        path: playwright-report
-        path: verification
+        path: 
+          playwright-report 
+          verification
+        
