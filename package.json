@@ -1,6 +1,7 @@
 {
   "scripts": {
     "test:api": "yarn run playwright test tests/api-test/api.playwright.spec.ts",
+    "test:browser:ci": "yarn run playwright test --project=chrome tests/browser-test",
     "test:browser": "yarn run playwright test tests/browser-test",
     "format:fix": "prettier --write ./tests",
     "lint": "yarn run eslint tests --ext ts",
@@ -23,7 +24,6 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^5.2.0",
     "generate-password": "^1.7.0",
-    "googleapis": "^39.2.0",
     "playwright": "^1.26.1",
     "prettier": "2.5.1",
     "ts-node": "^10.4.0",

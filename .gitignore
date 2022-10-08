@@ -1,6 +1,5 @@
 node_modules
 test-results
-playwright-auth.json
 .env
 playwright-report
 verification

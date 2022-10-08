@@ -1,28 +1,16 @@
-import { test, Browser, Page, chromium, expect } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { Home } from '../page/home/home';
-import chance from 'chance';
 import { hoverOver, isSelectorExists } from '../helpers/common';
 
-// test.use({ storageState: 'playwright-auth.json' });
-
 test.describe('Ebay Home Page Tests', async () => {
-    let browser: Browser;
-    let page: Page;
-    const Chance = chance();
-
     test.beforeAll(async () => {
         console.log('Setting browser and page ...');
-        browser = await chromium.launch();
-        const context = await browser.newContext();
-        page = await context.newPage();
         test.setTimeout(30000);
     });
 
-    test.afterAll(async () => {
-        await browser.close();
-    });
-
-    test('Assert Home page is displayed and Navigation Menu Items are present', async () => {
+    test('Assert Home page is displayed and Navigation Menu Items are present', async ({
+        page,
+    }) => {
         const home = new Home(page);
         await page.goto('/');
         const navItems = await home.returnHomeSelectors('navSelector');
@@ -37,7 +25,9 @@ test.describe('Ebay Home Page Tests', async () => {
         });
     });
 
-    test('Assert Electronic Sales Page is displayed successfully with use of hover over from Nav Item', async () => {
+    test('Assert Electronic Sales Page is displayed successfully with use of hover over from Nav Item', async ({
+        page,
+    }) => {
         const home = new Home(page);
         await page.goto('/');
         const navItems = await home.returnHomeSelectors('navSelector');
@@ -50,7 +40,7 @@ test.describe('Ebay Home Page Tests', async () => {
         });
     });
 
-    test('Assert user can search for menu Items', async () => {
+    test('Assert user can search for menu Items', async ({ page }) => {
         const home = new Home(page);
         const searchString = 'cars';
         await page.goto('/');

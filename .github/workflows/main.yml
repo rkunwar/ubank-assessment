@@ -28,7 +28,7 @@ jobs:
         name: playwright-report-API
         path: playwright-report
     - name: Run Playwright browser tests
-      run: yarn run test:browser
+      run: yarn run test:browser:ci
     - name: Upload Browser test results
       if: always()
       uses: actions/upload-artifact@v2

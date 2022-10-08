@@ -30,8 +30,4 @@ export class Home {
         await this.page.fill(homePageSelectors.inputs.searchAnything, item);
         await this.page.click(homePageSelectors.buttons.search);
     }
-
-    async hoverMenuItems(item: string): Promise<void> {
-        await this.page.hover(homePageSelectors.navSelector.Home);
-    }
 }

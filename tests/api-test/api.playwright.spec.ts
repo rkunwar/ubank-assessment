@@ -7,7 +7,6 @@ import chance from 'chance';
 import { API_SERVER } from '../support';
 
 const Chance = chance();
-//test.use({ baseURL: 'https://petstore.swagger.io' });
 
 test.describe('API Tests', async () => {
     let apiContext: APIRequestContext;
@@ -49,6 +48,7 @@ test.describe('API Tests', async () => {
         expect(await petDetails.name).toBe(`Labrador ${petName}`);
     });
 
+    // Update Pet Name and assert the updated name is correct
     test('Assert PetName can be updated successfully', async () => {
         let updatedName: string = Chance.last();
         const response = await apiHelper.addPet(apiContext, `pet`, {
@@ -62,10 +62,10 @@ test.describe('API Tests', async () => {
         expect(await petDetails.name).toBe(`Labrador ${updatedName}`);
     });
 
+    // Delete a Pet and assert it is removed successfully by reading the pet by Id and check Pet not found message
     test('Assert pet can be deleted successfully', async () => {
         const response = await apiHelper.deletePet(apiContext, `pet/${petId}`);
         expect(response.ok()).toBeTruthy();
-
         const missingPetResponse = await apiHelper.findPetById(apiContext, `pet/${petId}`);
         expect(missingPetResponse.ok()).toBeFalsy();
         const missingPetMessage = await missingPetResponse.json();
