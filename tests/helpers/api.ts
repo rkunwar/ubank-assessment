@@ -1,13 +1,16 @@
 import { APIRequestContext, APIResponse, expect } from '@playwright/test';
-import { API_SERVER } from '../support/common'
+import { API_SERVER } from '../support';
 
 export const apiHelper = {
-
-    addPet: async (apiContext: APIRequestContext, reqUrl: string, petData: {}): Promise<APIResponse> => {
+    addPet: async (
+        apiContext: APIRequestContext,
+        reqUrl: string,
+        petData: {}
+    ): Promise<APIResponse> => {
         const res = await apiContext.post(`${API_SERVER}/${reqUrl}`, {
-            data: petData
+            data: petData,
         });
-        
+
         return res;
     },
 
