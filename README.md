@@ -74,10 +74,10 @@ Each test specs are named with their appropriate naming postfixed by .playwright
 
 ## GITHUB AND ACTIONS
 Assessment code has been committed to following public repository. 
-https://github.com/rkunwar/ubank-assessment
+https://github.com/rkunwar/assessment
 
 GITHUB Actions Pipeline has been setup with two different steps one for API Tests and 1 for browser tests to keep the tests separation. 
-https://github.com/rkunwar/ubank-assessment/actions
+https://github.com/rkunwar/assessment/actions
 
 Artifacts including the test results and verification screenshots have been stored after the successful pipeline runs. 
 
