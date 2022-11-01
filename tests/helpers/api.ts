@@ -1,5 +1,5 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
-import { API_SERVER } from '../support';
+import { API_SERVER, BUTN_SERVER } from '../support';
 
 export const apiHelper = {
     /**
@@ -57,4 +57,9 @@ export const apiHelper = {
         const res = await apiContext.delete(`${API_SERVER}/${reqUrl}`);
         return res;
     },
+
+    getBorrower:async (apiContext:APIRequestContext,reqUrl:string): Promise<APIResponse> => {
+        const res = await apiContext.get(`${BUTN_SERVER}/${reqUrl}`);
+        return res;
+    }
 };
